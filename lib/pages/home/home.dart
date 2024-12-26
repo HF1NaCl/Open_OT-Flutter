@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import '../../widgets/nav_drawer.dart';
 
 class MainMenu extends StatefulWidget {
-  const MainMenu({super.key});
+  final int initialIndex;
+
+  const MainMenu({super.key, this.initialIndex = 0});
 
   @override
   State<MainMenu> createState() => _MainMenuState();
@@ -122,7 +124,14 @@ class _MainMenuState extends State<MainMenu> {
           ),
         ],
       ),
-      drawer: NavDraw(),
+      drawer: NavDraw(
+        onPageSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+          _pageController.jumpToPage(index);
+        },
+      ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
           setState(() {
@@ -138,7 +147,6 @@ class _MainMenuState extends State<MainMenu> {
         selectedIndex: currentPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
             icon: Icon(Icons.account_tree),
             label: 'Ambientes',
           ),
