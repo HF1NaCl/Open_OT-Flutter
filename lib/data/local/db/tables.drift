@@ -1,0 +1,88 @@
+CREATE TABLE environment (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_environment varchar NOT NULL,
+    description varchar,
+    type_environment INT
+);
+
+CREATE TABLE environment_type (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_environment_type varchar NOT NULL,
+    is_using_car boolean,
+    is_using_businesses boolean,
+    is_exclusive_local boolean,
+    is_national boolean
+);
+
+CREATE TABLE country (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_country varchar NOT NULL
+);
+
+CREATE TABLE region (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_region varchar NOT NULL
+);
+
+CREATE TABLE city (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_REGION INT NOT NULL,
+    name_city varchar NOT NULL
+);
+
+CREATE TABLE business (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_CITY INT NOT NULL,
+    name_business varchar NOT NULL,
+    phone_business INT NOT NULL,
+    email_business varchar NOT NULL,
+    address_business varchar NOT NULL
+);
+
+CREATE TABLE contact (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_CITY INT NOT NULL,
+    ID_BUSINESS INT,
+    name_contact varchar NOT NULL,
+    dni_contact varchar NOT NULL,
+    address_contact varchar NOT NULL,
+    phone_contact INT NOT NULL,
+    phone2_contact INT,
+    email_contact varchar NOT NULL
+);
+
+CREATE TABLE worker (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_CITY INT NOT NULL,
+    name_worker varchar NOT NULL,
+    dni_worker varchar NOT NULL,
+    address_worker varchar NOT NULL,
+    phone_worker INT NOT NULL,
+    email_worker varchar NOT NULL
+);
+
+CREATE TABLE vehicle (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_vehicle varchar NOT NULL,
+    patent_vehicle varchar NOT NULL,
+    model_vehicle varchar NOT NULL,
+    width_max INT NOT NULL,
+    height_max INT NOT NULL,
+    ton_max INT NOT NULL,
+    type_vehicle INT NOT NULL,
+    fee_vehicle INT
+);
+
+CREATE TABLE vehicle_preset (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_vehicle_preset varchar NOT NULL,
+    width_max INT NOT NULL,
+    height_max INT NOT NULL,
+    ton_max INT NOT NULL
+    type_vehicle INT NOT NULL
+);
+
+CREATE TABLE type_vehicle (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name_type_vehicle varchar NOT NULL
+);
