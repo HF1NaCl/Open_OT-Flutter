@@ -3,6 +3,7 @@ import 'package:open_ot/pages/home/home.dart';
 import 'package:page_transition/page_transition.dart';
 import '../pages/settings/settings.dart';
 import '../pages/finances/finances.dart';
+import '../pages/vehicles/vehicles.dart';
 
 class NavDraw extends StatelessWidget {
   final Function(int)? onPageSelected;
@@ -80,7 +81,13 @@ class NavDraw extends StatelessWidget {
           _buildItem(
               icon: Icons.car_repair,
               title: 'Vehiculos',
-              onTap: ()=> ''
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  PageTransition(child: VehiclesPage(), type: PageTransitionType.fade),
+                );
+              }
           ),
           Divider(),
           _buildItem(
@@ -115,9 +122,10 @@ class NavDraw extends StatelessWidget {
       Navigator.pop(context);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-          builder: (context) => MainMenu(initialIndex: index)
-        )
+        PageTransition(child: MainMenu(initialIndex: index), type: PageTransitionType.fade)
+        //MaterialPageRoute(
+          //builder: (context) => MainMenu(initialIndex: index)
+        //)
       );
     }
   }

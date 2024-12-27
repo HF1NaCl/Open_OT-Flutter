@@ -139,7 +139,7 @@ class _MainMenuState extends State<MainMenu> {
           });
           _pageController.animateToPage(
             index,
-            duration: const Duration(milliseconds: 150),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
           );
         },
