@@ -11,8 +11,18 @@ part 'database.g.dart';
 )
 class Database extends _$Database {
   Database() : super(_openConnection());
-}
 
+  Future<int> addCountry(CountryCompanion companion) async {
+    try {
+      return await into(country).insert(companion);
+    } catch (e) {
+      return -1;
+    }
+  }
+
+  @override
+  int get schemaVersion => 1;
+}
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();

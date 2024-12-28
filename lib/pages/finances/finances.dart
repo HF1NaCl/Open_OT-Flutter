@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../../widgets/nav_drawer.dart';
 
 class FinancesPage extends StatelessWidget {
-
-
   const FinancesPage({super.key});
 
   @override

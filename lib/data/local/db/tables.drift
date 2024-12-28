@@ -2,7 +2,14 @@ CREATE TABLE environment (
     ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
     name_environment varchar NOT NULL,
     description varchar,
-    type_environment INT
+    type_environment INT,
+    is_using_car boolean,
+    is_using_businesses boolean,
+    is_exclusive_local boolean,
+    is_national boolean,
+    country_environment INT NOT NULL,
+    city_environment INT NOT NULL,
+    region_environment INT NOT NULL
 );
 
 CREATE TABLE environment_type (
@@ -21,12 +28,14 @@ CREATE TABLE country (
 
 CREATE TABLE region (
     ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
-    name_region varchar NOT NULL
+    name_region varchar NOT NULL,
+    ID_COUNTRY INT NOT NULL
 );
 
 CREATE TABLE city (
     ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
     ID_REGION INT NOT NULL,
+    ID_COUNTRY INT NOT NULL,
     name_city varchar NOT NULL
 );
 
@@ -37,6 +46,12 @@ CREATE TABLE business (
     phone_business INT NOT NULL,
     email_business varchar NOT NULL,
     address_business varchar NOT NULL
+);
+
+CREATE TABLE environment_business (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_ENVIRONMENT INT NOT NULL,
+    ID_BUSINESS INT NOT NULL
 );
 
 CREATE TABLE contact (
@@ -51,6 +66,12 @@ CREATE TABLE contact (
     email_contact varchar NOT NULL
 );
 
+CREATE TABLE environment_contact (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_ENVIRONMENT INT NOT NULL,
+    ID_CONTACT INT NOT NULL
+);
+
 CREATE TABLE worker (
     ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
     ID_CITY INT NOT NULL,
@@ -58,7 +79,14 @@ CREATE TABLE worker (
     dni_worker varchar NOT NULL,
     address_worker varchar NOT NULL,
     phone_worker INT NOT NULL,
-    email_worker varchar NOT NULL
+    email_worker varchar NOT NULL,
+    ID_CONTACT INT NOT NULL
+);
+
+CREATE TABLE environment_worker (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_ENVIRONMENT INT NOT NULL,
+    ID_WORKER INT NOT NULL
 );
 
 CREATE TABLE vehicle (
@@ -73,12 +101,18 @@ CREATE TABLE vehicle (
     fee_vehicle INT
 );
 
+CREATE TABLE environment_vehicle (
+    ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+    ID_ENVIRONMENT INT NOT NULL,
+    ID_VEHICLE INT NOT NULL
+);
+
 CREATE TABLE vehicle_preset (
     ID INT NOT NULL PRIMARY KEY AUTOINCREMENT,
     name_vehicle_preset varchar NOT NULL,
     width_max INT NOT NULL,
     height_max INT NOT NULL,
-    ton_max INT NOT NULL
+    ton_max INT NOT NULL,
     type_vehicle INT NOT NULL
 );
 
