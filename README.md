@@ -11,17 +11,11 @@ La tésis está siendo escrita en Notion, por lo cual, todavía no está listo p
 
 # Idea original de OT Project
 
-blah texto en progreso
+OT Project es un CodeName para hacer referencia a un proyecto basado en Órdenes de Transporte, de ahí su nombre.
 
-## Getting Started
+Su idea original es el de gestionar las finanzas del Ambiente de Fletes, para de esa manera, ordenar los servicios, contactos y mantenimiento de los vehículos.
 
-This project is a starting point for a Flutter application.
+## Enlaces
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+En progeso:
+Verifica la Tésis desarrollada en ese entonces: Link to tesis
