@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class ThemeController extends GetxController {
   var themeMode = ThemeMode.system.obs; // Usamos ThemeMode en lugar de un bool
+  var selectedColor = Colors.blue.obs;
 
   // Cargar preferencia del tema al iniciar
   Future<void> loadThemePreference() async {
