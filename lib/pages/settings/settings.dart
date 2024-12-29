@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'subpages/theme_page.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -15,7 +16,10 @@ class SettingsPage extends StatelessWidget {
             leading: const Icon(Icons.palette),
             title: const Text('Cambiar tema'),
             onTap: () {
-              // Acción para cambiar el tema
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ThemePage()),
+              );
             },
           ),
           ListTile(
