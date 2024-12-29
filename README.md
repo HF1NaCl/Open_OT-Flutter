@@ -13,7 +13,7 @@ La tésis está siendo escrita en Notion, por lo cual, todavía no está listo p
 
 OT Project es un CodeName para hacer referencia a un proyecto basado en Órdenes de Transporte, de ahí su nombre.
 
-Su idea original es el de gestionar las finanzas del Ambiente de Fletes, para de esa manera, ordenar los servicios, contactos y mantenimiento de los vehículos.
+Su idea original es el de gestionar las finanzas del Ambiente de Fletes, para de esa manera, ordenar los servicios, contactos y mantenimiento de los vehículos. También guardar documentación legal y requerida para el transporte en caso de control legal.
 
 ## Enlaces
 
