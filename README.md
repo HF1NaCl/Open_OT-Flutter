@@ -26,3 +26,7 @@ Recuerde que este software está en desarrollo, que ahora mismo se encuentra en:
 
 Advertencia Legal:
 > No me hago responsable si lo llegan a detener por falta de documentación, mala planificación y/u otras cosas como la Falta de Formalidad. Recuerde que este proyecto está en desarrollo, por lo que si desea implementarlo en su Micro Emprendimiento, en su Empresa de cualquier tamaño (Micro, Pequeño, Mediano o Grande), verifique si el software funciona y luego lo implementa de forma oficial. No olvide que tambień debe presentar el software para su uso legal, licenciado a las entidades fiscalizadoras (Si es que aplica el caso).
+
+Si eres un Desarrollador, puedes pedir una Pull Request o crear un Fork del proyecto.
+
+Si eres empresa, Utilice la versión (O fork más reciente) para analizar sus necesidades, para lo cual, si hay algo que realmente necesite, no dude en contactarse conmigo.
