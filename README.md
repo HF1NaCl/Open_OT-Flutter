@@ -18,14 +18,14 @@ Su idea original es el de gestionar las finanzas del Ambiente de Fletes, para de
 # Ideas para esta versión
 
 Aparte de hacer todo un Port del OT_Project, la gracia de esto es hacer lo siguiente:
--Convertir base de datos en la Nube en Local
--Crear copias de seguridad de la Base de datos en el Almacenamiento Interno y hacia el Drive
--Integración con Google Drive para el uso del archivo de base de datos.
+- Convertir base de datos en la Nube en Local
+- Crear copias de seguridad de la Base de datos en el Almacenamiento Interno y hacia el Drive
+- Integración con Google Drive para el uso del archivo de base de datos.
 
 Ideas Ambiciosas (Si es que logro hacerlo):
--Modo local para conectar a través de una URL.
--Compartir hacia otras personas.
--Actualización en tiempo real.
+- Modo local para conectar a través de una URL.
+- Compartir hacia otras personas.
+- Actualización en tiempo real.
 
 # Enlaces
 
