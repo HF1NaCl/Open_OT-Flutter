@@ -11,20 +11,16 @@ import 'data/local/db/database.dart';
 import 'data/local/db/initializer/country_initializer.dart';
 import 'data/local/db/initializer/environment_type_initializer.dart';
 import 'data/themes/blue_theme.dart';
+import 'data/controllers/theme_controller.dart';
 
 // Controlador para el tema
-class ThemeController extends GetxController {
-  var themeMode = ThemeMode.system.obs; // Modo inicial (sistema)
-
-  void setTheme(ThemeMode mode) {
-    themeMode.value = mode; // Actualiza el tema seleccionado
-  }
-}
-
-final ValueNotifier<String> currentRouteNotifier = ValueNotifier<String>('/home');
+final themeController = Get.put(ThemeController());
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Inicializa el controlador de temas
+  await themeController.loadThemePreference(); // Cargar preferencia del tema
 
   // Inicializa la base de datos
   final db = Database();
@@ -45,9 +41,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = BlueMaterialTheme(Theme.of(context).textTheme);
-
-    // Inicializamos el controlador de temas
-    final themeController = Get.put(ThemeController());
 
     return Obx(() => GetMaterialApp(
       debugShowCheckedModeBanner: false,

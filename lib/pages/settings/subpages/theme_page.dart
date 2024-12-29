@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../main.dart'; // Importa el controlador de temas
-
+import '../../../../data/controllers/theme_controller.dart';
 class ThemePage extends StatelessWidget {
   const ThemePage({super.key});
 
