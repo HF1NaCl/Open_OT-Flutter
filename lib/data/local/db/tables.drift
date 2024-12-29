@@ -9,7 +9,8 @@ CREATE TABLE environment (
     is_national boolean,
     country_environment INT NOT NULL,
     city_environment INT NOT NULL,
-    region_environment INT NOT NULL
+    region_environment INT NOT NULL,
+    date_environment date NOT NULL
 );
 
 CREATE TABLE environment_type (

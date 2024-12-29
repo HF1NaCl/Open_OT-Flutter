@@ -8,6 +8,7 @@ import 'pages/home/home.dart';
 
 import 'data/local/db/database.dart';
 import 'data/local/db/initializer/country_initializer.dart';
+import 'data/local/db/initializer/environment_type_initializer.dart';
 
 final ValueNotifier<String> currentRouteNotifier = ValueNotifier<String>('/home');
 
@@ -23,6 +24,9 @@ void main() async {
   // Inserta los países iniciales.
   final countryInitializer = CountryInitializer(db);
   await countryInitializer.insertDefaultCountries();
+
+  final environmentTypeInitializer = EnvironmentTypeInitializer(db);
+  await environmentTypeInitializer.insertDefaultEnvironmentTypes();
 
   runApp(const MyApp());
 }
