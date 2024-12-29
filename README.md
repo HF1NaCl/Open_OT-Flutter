@@ -15,7 +15,14 @@ OT Project es un CodeName para hacer referencia a un proyecto basado en Órdenes
 
 Su idea original es el de gestionar las finanzas del Ambiente de Fletes, para de esa manera, ordenar los servicios, contactos y mantenimiento de los vehículos. También guardar documentación legal y requerida para el transporte en caso de control legal.
 
-## Enlaces
+# Enlaces
 
 En progeso:
 Verifica la Tésis desarrollada en ese entonces: Link to tesis
+
+# Advertencias
+
+Recuerde que este software está en desarrollo, que ahora mismo se encuentra en: **PORT IN PROGRESS**
+
+Advertencia Legal:
+> No me hago responsable si lo llegan a detener por falta de documentación, mala planificación y/u otras cosas como la Falta de Formalidad. Recuerde que este proyecto está en desarrollo, por lo que si desea implementarlo en su Micro Emprendimiento, en su Empresa de cualquier tamaño (Micro, Pequeño, Mediano o Grande), verifique si el software funciona y luego lo implementa de forma oficial. No olvide que tambień debe presentar el software para su uso legal, licenciado a las entidades fiscalizadoras (Si es que aplica el caso).
