@@ -26,6 +26,7 @@ Ideas Ambiciosas (Si es que logro hacerlo):
 - Modo local para conectar a través de una URL.
 - Compartir hacia otras personas.
 - Actualización en tiempo real.
+- Versión para Desktop y Web para motivos locales y acceso en línea.
 
 # Enlaces
 
