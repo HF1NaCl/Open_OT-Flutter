@@ -49,7 +49,7 @@ class Database extends _$Database {
 LazyDatabase _openConnection() {
   return LazyDatabase(() async {
     final dbFolder = await getApplicationDocumentsDirectory();
-    final file = File(path.join(dbFolder.path, 'database.db'));
+    final file = File(path.join(dbFolder.path, 'HF1NaCl Software/Open OT/open_ot_database.db'));
     return NativeDatabase.createInBackground(file);
   });
 }

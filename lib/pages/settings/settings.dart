@@ -35,6 +35,7 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
             },
           ),
+          Divider(),
           SwitchListTile(
             title: const Text('Notificaciones'),
             value: true, // Estado actual del interruptor
@@ -42,6 +43,7 @@ class SettingsPage extends StatelessWidget {
               // Acción al cambiar el interruptor
             },
           ),
+          Divider(),
           ListTile(
             leading: const Icon(Icons.info),
             title: const Text('Acerca Del Software'),

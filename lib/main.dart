@@ -44,18 +44,20 @@ class MyApp extends StatelessWidget {
 
     return Obx(() => GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 300),
       theme: theme.light(),
       darkTheme: theme.dark(),
-      themeMode: themeController.themeMode.value, // Observa el cambio de tema
-      routes: {
-        '/home': (context) => const MainMenu(),
-        '/finances': (context) => const FinancesPage(),
-        '/environment': (context) => const EnvironmentPage(),
-        '/contacts': (context) => const ContactsPage(),
-        '/service': (context) => const ServicePage(),
-        '/vehicles': (context) => const VehiclesPage(),
-      },
+      themeMode: themeController.themeMode.value,
+      getPages: [
+        GetPage(name: '/home', page: () => const MainMenu()),
+        GetPage(name: '/finances', page: () => const FinancesPage()),
+        GetPage(name: '/environment', page: () => const EnvironmentPage()),
+        GetPage(name: '/contacts', page: () => const ContactsPage()),
+        GetPage(name: '/service', page: () => const ServicePage()),
+        GetPage(name: '/vehicles', page: () => const VehiclesPage()),
+      ],
       initialRoute: '/home',
     ));
-  }
+    }
 }

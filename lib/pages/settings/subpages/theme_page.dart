@@ -15,7 +15,16 @@ class ThemePage extends StatelessWidget {
         title: const Text('Seleccionar Tema'),
       ),
       body: Obx(() {
-        final currentTheme = themeController.themeMode.value; // Tema actual
+        // Usamos el tema actual, ya sea del sistema o de la app
+        final currentTheme = themeController.themeMode.value;
+
+        // Si el tema es del sistema, obtenemos el tema actual del sistema
+        ThemeMode effectiveTheme = currentTheme == ThemeMode.system
+            ? (MediaQuery.of(context).platformBrightness == Brightness.dark
+            ? ThemeMode.dark
+            : ThemeMode.light)
+            : currentTheme;
+
         return ListView(
           children: [
             // Opción para tema claro
@@ -51,111 +60,51 @@ class ThemePage extends StatelessWidget {
                 }
               },
             ),
-            const Divider(),
-            // Opción para elegir un color
-            Row(
-              children: const [
-                SizedBox(width: 28), // Mueve el texto un poco a la derecha
-                Text(
-                  'Selecciona un Color:',
-                  style: TextStyle(fontSize: 20),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16), // Espacio entre el texto y los círculos
-            // Fila de colores
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                // Color 1
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.blueAccent,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
+            Divider(),
+            // Ejemplos visuales después del Divider
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  // Ejemplo de un contenedor con texto
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: effectiveTheme == ThemeMode.dark
+                          ? Colors.grey[850]
+                          : Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      'Este es un ejemplo del Tema a mostrar',
+                      style: TextStyle(
+                        color: effectiveTheme == ThemeMode.dark
+                            ? Colors.white
+                            : Colors.black,
                       ),
-                    ],
-                  ),
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 18,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.blue,
-                      radius: 10,
                     ),
                   ),
-                ),
-                // Color 2
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.green,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.greenAccent,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
+                  const SizedBox(height: 16),
+                  // Ejemplo de un ícono
+                  Icon(
+                    Icons.lightbulb,
+                    color: effectiveTheme == ThemeMode.dark
+                        ? Colors.yellow
+                        : Colors.blue,
+                    size: 48,
                   ),
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 18,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.green,
-                      radius: 10,
+                  const SizedBox(height: 16),
+                  // Ejemplo de un texto
+                  Text(
+                    'Texto de ejemplo para ver cómo cambia el tema',
+                    style: TextStyle(
+                      color: effectiveTheme == ThemeMode.dark
+                          ? Colors.white
+                          : Colors.black,
                     ),
                   ),
-                ),
-                // Color 3
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.red,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.redAccent,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 18,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.red,
-                      radius: 10,
-                    ),
-                  ),
-                ),
-                // Color 4
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.orange,
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.orangeAccent,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 18,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.orange,
-                      radius: 10,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         );

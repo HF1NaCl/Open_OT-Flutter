@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../pages/settings/settings.dart';
 
 class NavDraw extends StatelessWidget {
+
   final Function(int)? onPageSelected;
 
   const NavDraw({super.key, this.onPageSelected});
@@ -12,7 +14,6 @@ class NavDraw extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-
     final currentRoute = ModalRoute.of(context)?.settings.name;
 
     return Drawer(
@@ -50,8 +51,8 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.home,
                   title: 'Menu Principal',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, '/home');
+                    Get.back();  // Cierra el Drawer
+                    Get.offNamed('/home');  // Navega usando GetX
                   },
                   selected: currentRoute == '/home',
                   context: context,
@@ -60,8 +61,8 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.money,
                   title: 'Finanzas',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, '/finances');
+                    Get.back();  // Cierra el Drawer
+                    Get.offNamed('/finances');  // Navega usando GetX
                   },
                   selected: currentRoute == '/finances',
                   context: context,
@@ -73,30 +74,12 @@ class NavDraw extends StatelessWidget {
             padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 12.0),
             child: Column(
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 16, // Ancho del espacio reservado para el ícono
-                    ),
-                    Text(
-                      'Vista Detallada',
-                      style:
-                        theme.textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: colorScheme.onSurface.withOpacity(0.7),
-                        fontSize: theme.textTheme.bodyMedium?.fontSize,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
                 _buildItem(
                   icon: Icons.car_repair,
                   title: 'Ambientes',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, '/environment');
+                    Get.back();
+                    Get.offNamed('/environment');
                   },
                   selected: currentRoute == '/environment',
                   context: context,
@@ -105,8 +88,8 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.contacts,
                   title: 'Contactos',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, '/contacts');
+                    Get.back();  // Cierra el Drawer
+                    Get.offNamed('/contacts');  // Navega usando GetX
                   },
                   selected: currentRoute == '/contacts',
                   context: context,
@@ -115,8 +98,8 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.settings,
                   title: 'Servicios',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, '/service');
+                    Get.back();  // Cierra el Drawer
+                    Get.offNamed('/service');  // Navega usando GetX
                   },
                   selected: currentRoute == '/service',
                   context: context,
@@ -125,8 +108,8 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.car_repair,
                   title: 'Vehiculos',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pushReplacementNamed(context, '/vehicles');
+                    Get.back();  // Cierra el Drawer
+                    Get.offNamed('/vehicles');  // Navega usando GetX
                   },
                   selected: currentRoute == '/vehicles',
                   context: context,
@@ -143,11 +126,11 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.settings,
                   title: 'Configuracion',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      PageTransition(child: SettingsPage(), type: PageTransitionType.rightToLeftWithFade),
-                    );
+                    Get.back();  // Cierra el Drawer
+                    Get.to(
+                      SettingsPage(),
+                      transition: Transition.rightToLeftWithFade,
+                    );  // Usa GetX para navegar con la transición fade
                   },
                   selected: currentRoute == '/settings',
                   context: context,
@@ -156,11 +139,11 @@ class NavDraw extends StatelessWidget {
                   icon: Icons.help,
                   title: 'Ayuda y Comentarios',
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      PageTransition(child: SettingsPage(), type: PageTransitionType.rightToLeftWithFade),
-                    );
+                    Get.back();  // Cierra el Drawer
+                    Get.to(
+                      SettingsPage(),
+                      transition: Transition.rightToLeftWithFade,
+                    );  // Usa GetX para navegar con la transición fade
                   },
                   selected: currentRoute == '/settings',
                   context: context,

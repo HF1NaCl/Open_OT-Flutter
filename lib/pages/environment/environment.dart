@@ -4,7 +4,7 @@ import '../../data/local/db/database.dart'; // Asegúrate de importar tu base de
 import 'package:intl/intl.dart'; // Para formatear la fecha.
 
 class EnvironmentPage extends StatelessWidget {
-  final bool isEmbedded; // Determina si se renderiza dentro de otra página.
+  final bool isEmbedded;
 
   const EnvironmentPage({super.key, this.isEmbedded = false});
 
@@ -37,34 +37,34 @@ class EnvironmentPage extends StatelessWidget {
     );
 
     if (isEmbedded) {
-      // Si está embebido, solo devuelve el contenido.
       return content;
     } else {
-      // Si es una página independiente, envuelve el contenido con Scaffold.
       return Scaffold(
         appBar: AppBar(
           title: const Text('Ambientes'),
         ),
-        drawer: NavDraw(
-          onPageSelected: (int index) {
-            // Navegación desde el drawer
-          },
-        ),
+        drawer: NavDraw(onPageSelected: (int index) {}),
         body: content,
       );
     }
   }
 
   void _showCountryDialog(BuildContext context) async {
-    final db = Database(); // Inicializa tu base de datos correctamente.
-    final countries = await db.getCountries(); // Obtiene los países de la base de datos.
+    final db = Database();
+    final countries = await db.getCountries();
     final environmentTypes = await db.getEnvironmentTypes();
 
-    String? selectedCountry; // Variable para almacenar el país seleccionado.
-    String name = ''; // Variable para el nombre ingresado.
+    String? selectedCountry;
+    String name = '';
     int? selectedEnvironmentType;
 
-    String currentDate = DateFormat('yyyyMMdd').format(DateTime.now()); // Formato de la fecha actual.
+    // Variables para manejar el estado de las casillas de verificación
+    bool useVehicles = false;
+    bool contactCompanies = false;
+    bool limitLocally = false;
+    bool exclusiveCountry = false;
+
+    String currentDate = DateFormat('yyyyMMdd').format(DateTime.now());
 
     showDialog(
       context: context,
@@ -78,7 +78,6 @@ class EnvironmentPage extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Input para el nombre
                   TextField(
                     onChanged: (value) {
                       setState(() {
@@ -90,10 +89,8 @@ class EnvironmentPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Primer DropdownButton
-                  // Primer DropdownButton
                   DropdownButtonFormField<int>(
-                    value: selectedEnvironmentType ?? 0,  // Valor predeterminado 0
+                    value: selectedEnvironmentType ?? 0,
                     decoration: InputDecoration(
                       labelText: 'Tipo de Ambiente',
                       border: OutlineInputBorder(
@@ -103,7 +100,6 @@ class EnvironmentPage extends StatelessWidget {
                     ),
                     hint: const Text('Elige un Tipo Ambiente'),
                     items: [
-                      // Puedes agregar un "valor vacío" o predeterminado al inicio si lo deseas.
                       DropdownMenuItem<int>(
                         value: 0,
                         child: Text('Ninguno'),
@@ -151,53 +147,37 @@ class EnvironmentPage extends StatelessWidget {
                   const SizedBox(height: 16),
                   CheckboxListTile(
                     title: const Text('Usa Vehículos'),
-                    value: false,//selectedFeatures.contains('specialFeatures'),
+                    value: useVehicles,
                     onChanged: (bool? value) {
                       setState(() {
-                        if (value == true) {
-                          //selectedFeatures.add('specialFeatures');
-                        } else {
-                          //selectedFeatures.remove('specialFeatures');
-                        }
+                        useVehicles = value ?? false;
                       });
                     },
                   ),
                   CheckboxListTile(
                     title: const Text('Se contacta con Empresas.'),
-                    value: false, //selectedFeatures.contains('additionalDetails'),
+                    value: contactCompanies,
                     onChanged: (bool? value) {
                       setState(() {
-                        if (value == true) {
-                          //selectedFeatures.add('additionalDetails');
-                        } else {
-                          //selectedFeatures.remove('additionalDetails');
-                        }
+                        contactCompanies = value ?? false;
                       });
                     },
                   ),
                   CheckboxListTile(
                     title: const Text('Se limita localmente.'),
-                    value: false, //selectedFeatures.contains('additionalDetails'),
+                    value: limitLocally,
                     onChanged: (bool? value) {
                       setState(() {
-                        if (value == true) {
-                          //selectedFeatures.add('additionalDetails');
-                        } else {
-                          //selectedFeatures.remove('additionalDetails');
-                        }
+                        limitLocally = value ?? false;
                       });
                     },
                   ),
                   CheckboxListTile(
                     title: const Text('Es exclusivo del País.'),
-                    value: false, //selectedFeatures.contains('additionalDetails'),
+                    value: exclusiveCountry,
                     onChanged: (bool? value) {
                       setState(() {
-                        if (value == true) {
-                          //selectedFeatures.add('additionalDetails');
-                        } else {
-                          //selectedFeatures.remove('additionalDetails');
-                        }
+                        exclusiveCountry = value ?? false;
                       });
                     },
                   ),
@@ -208,7 +188,7 @@ class EnvironmentPage extends StatelessWidget {
                       controller: TextEditingController(text: currentDate),
                       readOnly: true,
                       decoration: const InputDecoration(
-                        border: InputBorder.none, // Sin borde.
+                        border: InputBorder.none,
                       ),
                     ),
                   ),
@@ -219,7 +199,7 @@ class EnvironmentPage extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Cerrar el cuadro de diálogo.
+                Navigator.of(context).pop();
               },
               child: const Text('Cancelar'),
             ),
@@ -229,9 +209,12 @@ class EnvironmentPage extends StatelessWidget {
                   print('País seleccionado: $selectedCountry');
                   print('Nombre del ambiente: $name');
                   print('Fecha (hidden): $currentDate');
-                  // Aquí puedes realizar acciones adicionales con los datos ingresados.
+                  print('Usa Vehículos: $useVehicles');
+                  print('Se contacta con Empresas: $contactCompanies');
+                  print('Se limita localmente: $limitLocally');
+                  print('Es exclusivo del País: $exclusiveCountry');
                 }
-                Navigator.of(context).pop(); // Cerrar el cuadro de diálogo.
+                Navigator.of(context).pop();
               },
               child: const Text('Aceptar'),
             ),
