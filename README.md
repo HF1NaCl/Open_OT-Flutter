@@ -17,7 +17,7 @@ Su idea original es el de gestionar las finanzas del Ambiente de Fletes, para de
 
 # Estado actual
 
-Este proyecto solo es una demostración de Flutter para rehacer el proyecto original. [(OT_Project-SB)](https://github.com/HF1NaCl/OT_Project_SB). Si bien, este proyecto fue un intento de rehacer el proyecto de Tésis mencionado, será rehecho en Vue.js.
+Este proyecto solo es una demostración de Flutter para rehacer el proyecto original: [(OT_Project-SB)](https://github.com/HF1NaCl/OT_Project_SB). Si bien, este proyecto fue un intento de rehacer el proyecto de Tésis mencionado, será rehecho en Vue.js.
 Quedará este repositorio como una Demostración Académica. No esperes actualizaciones.
 
 # Advertencias
